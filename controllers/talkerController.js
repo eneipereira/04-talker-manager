@@ -7,3 +7,10 @@ exports.get = async (_req, res) => {
   
   res.status(HTTP_OK_STATUS).json(talkers);
 };
+
+exports.getById = async (req, res) => {
+  const { index } = req;
+  const talkers = await getTalker();
+  
+  res.status(HTTP_OK_STATUS).json(talkers[index]);
+};
