@@ -1,0 +1,1 @@
+exports.talkerRouter = require('./talkerRouter');
