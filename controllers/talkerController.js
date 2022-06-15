@@ -52,3 +52,12 @@ exports.delete = async (req, res) => {
 
   res.sendStatus(204);
 };
+
+exports.getByQuery = async (req, res) => {
+  const { q } = req.query;
+  const talkers = await getTalker();
+
+  const filteredTalkers = talkers.filter((talker) => talker.name.includes(q));
+
+  res.status(HTTP_OK_STATUS).json(filteredTalkers);
+};

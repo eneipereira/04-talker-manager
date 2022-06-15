@@ -7,6 +7,8 @@ const talkerRouter = Router();
 
 talkerRouter.get('/', talkersMiddleware.allTalkers, rescue(talkerController.get));
 
+talkerRouter.get('/search', talkersMiddleware.tokenAuth, rescue(talkerController.getByQuery));
+
 talkerRouter.get('/:id', talkersMiddleware.talkersById, rescue(talkerController.getById));
 
 talkerRouter.post('/', talkersMiddleware.tokenAuth, talkersMiddleware.newTalker,
