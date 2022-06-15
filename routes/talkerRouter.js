@@ -12,4 +12,8 @@ talkerRouter.get('/:id', talkersMiddleware.talkersById, rescue(talkerController.
 talkerRouter.post('/', talkersMiddleware.tokenAuth, talkersMiddleware.newTalker,
 rescue(talkerController.post));
 
+talkerRouter.put('/:id', talkersMiddleware.tokenAuth,
+talkersMiddleware.talkersById, talkersMiddleware.newTalker,
+rescue(talkerController.put));
+
 module.exports = talkerRouter;

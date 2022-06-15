@@ -123,4 +123,4 @@ const checkRate = (req, _res, next) => {
   next();
 };
 
-exports.newTalker = [checkName, checkAge, checkTalk, checkWatchedAt, checkRate]; 
+exports.newTalker = [checkName, checkAge, checkTalk, checkWatchedAt, checkRate];
