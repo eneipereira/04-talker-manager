@@ -19,14 +19,12 @@ exports.allTalkers = async (_req, res, next) => {
 exports.talkersById = async (req, _res, next) => {
   const id = Number(req.params.id);
   const talkers = await getTalker();
-  const hasID = talkers.some((talker) => talker.id === id);
+  const index = talkers.findIndex((talker) => talker.id === id);
 
-  if (!hasID) {
+  if (index === -1) {
     next(TALKER_NOT_FOUND);
     return;
   }
-
-  const index = talkers.findIndex((talker) => talker.id === id);
 
   req.index = index;
 
