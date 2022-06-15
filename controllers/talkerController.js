@@ -41,3 +41,14 @@ exports.put = async (req, res) => {
 
   res.status(HTTP_OK_STATUS).json(talkers[index]);
 };
+
+exports.delete = async (req, res) => {
+  const { index } = req;
+  const talkers = await getTalker();
+
+  talkers.splice(index, 1);
+
+  await putTalker(talkers);
+
+  res.sendStatus(204);
+};
